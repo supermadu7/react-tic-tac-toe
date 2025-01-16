@@ -7,14 +7,10 @@ export default function Player({ name, symbol }) {
     setIsEditing((editing) => !editing);
   }
 
-  function handleChange(event){
-    setPlayerName(event.target.value);
-  };
-
   let playerNamefield = <span className="player-name">{playerName}</span>;
   let buttonText = "Edit";
   if (isEditing) {
-    playerNamefield = <input type="text" value={playerName} onChange={handleChange} />;
+    playerNamefield = <input type="text" value={playerName} onChange={(e) => setPlayerName(e.target.value)} />;
     buttonText = "Save";
   }
   return (
